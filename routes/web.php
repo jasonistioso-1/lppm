@@ -68,3 +68,16 @@ Route::middleware(['auth'])->group(function () {
         return redirect('/admin');
     })->name('dashboard');
 });
+
+// Temporary Route to Migrate & Seed Database on Railway
+Route::get('/run-migrate-seed', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', [
+            '--force' => true,
+            '--seed' => true,
+        ]);
+        return 'Database migrated and seeded successfully!<br><pre>' . \Illuminate\Support\Facades\Artisan::output() . '</pre>';
+    } catch (\Exception $e) {
+        return 'Error: ' . $e->getMessage();
+    }
+});
