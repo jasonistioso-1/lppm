@@ -1,8 +1,9 @@
 {
-  "packages": {
-    "php": {
-      "version": "8.3",
-      "extensions": ["intl", "zip"]
+  "$schema": "https://schema.railpack.com",
+  "deploy": {
+    "variables": {
+      "RAILPACK_PHP_ROOT_DIR": "/app/public",
+      "RAILPACK_PHP_EXTENSIONS": "intl,zip"
     }
   }
 }
