@@ -21,7 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if ($this->app->environment('production') || env('APP_ENV') !== 'local') {
+        $host = request()->getHost();
+        if (!in_array($host, ['localhost', '127.0.0.1']) && !str_ends_with($host, '.test')) {
             URL::forceScheme('https');
         }
     }
