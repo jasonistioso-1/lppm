@@ -93,6 +93,12 @@ Route::prefix('panel-admin')->name('admin.')->group(function () {
     });
 });
 
+// Redirect standard /admin to custom Panel Admin login to hide it from the domain
+Route::redirect('/admin', '/panel-admin/login');
+Route::any('/admin/{any}', function () {
+    return redirect()->route('admin.login');
+})->where('any', '.*');
+
 // Helper route to migrate and seed production database on Railway
 Route::get('/init-production-db', function () {
     try {

@@ -23,7 +23,7 @@
               @forelse($sliders as $index => $slider)
                 <div class="hero-slide {{ $index === 0 ? 'active' : '' }}">
                   @auth
-                    <a href="{{ route('admin.slider.edit', $slider->id) }}" target="_blank" style="position: absolute; top: 15px; right: 15px; z-index: 1000; background: linear-gradient(135deg, #ff9900 0%, #ff5500 100%); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 0.72rem; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <a href="{{ route('admin.slider.edit', $slider->id) }}" target="_blank" class="admin-visual-edit-btn" style="position: absolute; top: 15px; right: 15px; z-index: 1000; background: linear-gradient(135deg, #ff9900 0%, #ff5500 100%); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 0.72rem; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
                       <i class="fa-solid fa-pen-to-square"></i> Edit Banner
                     </a>
                   @endauth
@@ -175,7 +175,7 @@
                 @endphp
                 <article class="news-feature-card reveal">
                   @auth
-                    <div style="background: rgba(0,0,0,0.15); padding: 6px 12px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10;">
+                    <div class="admin-edit-card-header" style="background: rgba(0,0,0,0.15); padding: 6px 12px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10;">
                       <span style="font-size: 0.68rem; color: #00c6ff; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;"><i class="fa-solid fa-shield-halved"></i> Kontrol Admin</span>
                       <a href="{{ route('admin.berita.edit', $berita->id) }}" target="_blank" style="background: #ff9900; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 3px; border: 1px solid rgba(255,255,255,0.15);">
                         <i class="fa-solid fa-pen-to-square"></i> Edit
@@ -233,7 +233,7 @@
           @forelse($videos as $video)
             <article class="news-feature-card reveal" style="background: rgba(15, 28, 63, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column;">
               @auth
-                <div style="background: rgba(0,0,0,0.15); padding: 8px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10;">
+                <div class="admin-edit-card-header" style="background: rgba(0,0,0,0.15); padding: 8px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10;">
                   <span style="font-size: 0.68rem; color: #00c6ff; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;"><i class="fa-solid fa-shield-halved"></i> Kontrol Admin</span>
                   <a href="{{ route('admin.video.edit', $video->id) }}" target="_blank" style="background: #ff9900; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 3px; border: 1px solid rgba(255,255,255,0.15);">
                     <i class="fa-solid fa-pen-to-square"></i> Edit
