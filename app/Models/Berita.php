@@ -20,6 +20,18 @@ class Berita extends News
         'link',
     ];
 
+    protected $appends = ['image', 'date'];
+
+    public function getImageAttribute()
+    {
+        return $this->thumbnail;
+    }
+
+    public function getDateAttribute()
+    {
+        return $this->published_at ? $this->published_at->format('d M Y') : '';
+    }
+
     public function setDateAttribute($value)
     {
         $this->attributes['published_at'] = $value ? date('Y-m-d H:i:s', strtotime($value)) : now();
