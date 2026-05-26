@@ -72,6 +72,14 @@
               $badgePath = Str::startsWith($publication->indexing_badge, 'assets/') ? asset($publication->indexing_badge) : ($publication->indexing_badge ? asset('storage/' . $publication->indexing_badge) : null);
             @endphp
             <article class="journal-card card">
+              @auth
+                <div style="background: rgba(0,0,0,0.05); padding: 8px 16px; border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10;">
+                  <span style="font-size: 0.68rem; color: #0072ff; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;"><i class="fa-solid fa-shield-halved"></i> Kontrol Admin</span>
+                  <a href="{{ route('admin.publikasi.edit', $publication->id) }}" target="_blank" style="background: #ff9900; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 0.65rem; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 3px; border: 1px solid rgba(255,255,255,0.15);">
+                    <i class="fa-solid fa-pen-to-square"></i> Edit Jurnal
+                  </a>
+                </div>
+              @endauth
               @if($badgePath)
                 <div class="journal-index-ribbon">
                   <img src="{{ $badgePath }}" alt="Indexing" />
