@@ -103,3 +103,7 @@ Route::get('/init-production-db', function () {
         return "Error initializing database: " . $e->getMessage();
     }
 });
+
+// Redirect old Filament admin panel to custom Panel Admin login
+Route::redirect('/admin', '/panel-admin/login');
+Route::redirect('/admin/login', '/panel-admin/login');
