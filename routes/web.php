@@ -92,3 +92,14 @@ Route::prefix('panel-admin')->name('admin.')->group(function () {
         Route::resource('kontak', App\Http\Controllers\Admin\ContactCrudController::class);
     });
 });
+
+// Helper route to migrate and seed production database on Railway
+Route::get('/init-production-db', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+        return "Database migrated and seeded successfully matching local development! Go back to the website and enjoy.";
+    } catch (\Exception $e) {
+        return "Error initializing database: " . $e->getMessage();
+    }
+});
