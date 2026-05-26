@@ -232,11 +232,11 @@
 
         /* Premium Dashboard Components */
         .glass-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(15, 28, 63, 0.4) !important;
             backdrop-filter: blur(15px);
             border: 1px solid var(--border-light);
             border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             padding: 30px;
             margin-bottom: 30px;
             transition: transform 0.3s ease, border-color 0.3s ease;
@@ -304,32 +304,37 @@
         }
 
         .table-premium {
-            color: #ffffff;
+            --bs-table-bg: transparent !important;
+            --bs-table-hover-bg: rgba(255, 255, 255, 0.03) !important;
+            color: #ffffff !important;
             margin: 0;
             border-collapse: separate;
             border-spacing: 0;
+            background: transparent !important;
         }
 
         .table-premium th {
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.45);
-            border-bottom: 1px solid var(--border-light);
+            color: rgba(255, 255, 255, 0.6) !important;
+            border-bottom: 1px solid var(--border-light) !important;
             padding: 16px 20px;
             font-size: 0.78rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            background: rgba(255,255,255,0.01);
+            background: rgba(15, 28, 63, 0.6) !important;
         }
 
         .table-premium td {
-            border-bottom: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light) !important;
             padding: 18px 20px;
             vertical-align: middle;
             font-size: 0.92rem;
+            color: #ffffff !important;
+            background: transparent !important;
         }
 
         .table-premium tr:hover td {
-            background: rgba(255, 255, 255, 0.015);
+            background: rgba(255, 255, 255, 0.03) !important;
         }
 
         .pagination {

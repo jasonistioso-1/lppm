@@ -36,6 +36,23 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        // Truncate tables to allow safe re-seeding without duplication
+        \Illuminate\Support\Facades\Schema::disableForeignKeyConstraints();
+        Slider::truncate();
+        ProfilePage::truncate();
+        Lecturer::truncate();
+        News::truncate();
+        Announcement::truncate();
+        Agenda::truncate();
+        Publication::truncate();
+        Document::truncate();
+        Research::truncate();
+        CommunityService::truncate();
+        Gallery::truncate();
+        Contact::truncate();
+        Video::truncate();
+        \Illuminate\Support\Facades\Schema::enableForeignKeyConstraints();
+
         // 2. Seed Sliders
         $sliders = [
             [
@@ -384,19 +401,19 @@ class DatabaseSeeder extends Seeder
         $videos = [
             [
                 'title' => 'Profil Lembaga Penelitian dan Pengabdian Masyarakat (LPPM) IBI KKG',
-                'url' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                'url' => 'https://www.youtube.com/embed/gL1b15XJ2w0',
                 'description' => 'Video pengenalan profil lengkap lembaga LPPM IBI Kwik Kian Gie.',
                 'status' => 'active',
             ],
             [
                 'title' => 'Kegiatan KKN & Pengabdian Masyarakat Terintegrasi',
-                'url' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                'url' => 'https://www.youtube.com/embed/uD9vJ_GvT1k',
                 'description' => 'Dokumentasi kegiatan lapangan dan pengabdian masyarakat oleh mahasiswa dan dosen.',
                 'status' => 'active',
             ],
             [
                 'title' => 'Seminar Nasional Hilirisasi Hasil Riset Multi-Disiplin',
-                'url' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                'url' => 'https://www.youtube.com/embed/l59B4B_GvI4',
                 'description' => 'Klip rangkuman pelaksanaan seminar nasional LPPM IBI Kwik Kian Gie.',
                 'status' => 'active',
             ],
