@@ -35,18 +35,6 @@
           </div>
         </div>
 
-        @if($page)
-          <div class="card card-glow-accent reveal" style="margin-bottom: 3rem; background: var(--panel-bg); border-radius: 12px; border: 1px solid var(--border-color); padding: 2.5rem;">
-            <div class="card-icon-header" style="display: flex; align-items: center; gap: 15px; margin-bottom: 1.5rem;">
-              <div class="icon-circle" style="width: 50px; height: 50px; border-radius: 50%; background: rgba(59, 130, 246, 0.1); display: flex; align-items: center; justify-content: center; color: var(--accent-color); font-size: 1.25rem;"><i class="fa-solid fa-sitemap"></i></div>
-              <h3 style="font-size: 1.5rem; color: var(--text-color); margin: 0;">{{ $page->title }}</h3>
-            </div>
-            <div class="card-body-text" style="color: var(--text-muted); line-height: 1.8;">
-              {!! $page->content !!}
-            </div>
-          </div>
-        @endif
-
         <div class="org-layout">
           <div class="org-top-line"></div>
 
