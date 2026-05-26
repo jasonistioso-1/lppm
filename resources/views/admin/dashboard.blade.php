@@ -113,28 +113,87 @@
 </div>
 
 <div class="glass-card mt-2">
-    <h3 class="fw-bold mb-3"><i class="fa-solid fa-hand-wave text-warning me-2"></i> Selamat Datang Kembali!</h3>
+    <h3 class="fw-bold mb-3 text-info"><i class="fa-solid fa-graduation-cap me-2"></i> Panduan Pengelolaan &amp; Pemetaan Navbar LPPM IBI KKG</h3>
     <p class="text-white-50">
-        Anda masuk sebagai administrator website LPPM IBI Kwik Kian Gie. Melalui panel administrasi kustom ini, Anda memiliki kendali penuh atas data-data dinamis website yang berlaras indah menyesuaikan tema branding Kwik Kian Gie.
+        Sebagai Administrator, tindakan yang Anda lakukan di panel admin ini akan langsung memengaruhi dan memperbarui halaman depan website LPPM. Berikut adalah panduan pemetaan perubahan untuk setiap menu:
     </p>
     
     <div class="row mt-4">
-        <div class="col-md-4 mb-3">
-            <div class="p-3 border border-secondary border-opacity-10 rounded-3 h-100 bg-white bg-opacity-5">
-                <h5 class="fw-bold text-info"><i class="fa-solid fa-house me-2"></i> Kelola Beranda</h5>
-                <p class="text-white-50 small mb-0">Kelola slider banner utama, berita track berputar, video YouTube LPPM, agenda monev/sosialisasi, dan galeri dokumentasi foto kegiatan secara dinamis.</p>
+        <!-- Panduan 1 -->
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border border-secondary border-opacity-10 rounded-3 h-100 bg-white bg-opacity-5" style="border-left: 4px solid var(--accent-secondary) !important;">
+                <h5 class="fw-bold text-white d-flex align-items-center gap-2">
+                    <span class="badge bg-primary bg-opacity-25 text-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 28px; height: 28px; font-size: 0.85rem;">1</span>
+                    Mengelola Slider &amp; Banner Utama
+                </h5>
+                <p class="text-white-50 small mt-2 mb-0">
+                    Masuk ke menu <strong class="text-info">Beranda &gt; Slider Banner</strong>. Setiap banner baru yang Anda tambahkan (dengan status <span class="badge bg-success bg-opacity-10 text-success small">Aktif</span>) akan memunculkan gambar slide besar, judul, deskripsi, dan tombol aksi di bagian paling atas beranda depan (<strong class="text-warning">Hero Carousel</strong>).
+                </p>
             </div>
         </div>
-        <div class="col-md-4 mb-3">
-            <div class="p-3 border border-secondary border-opacity-10 rounded-3 h-100 bg-white bg-opacity-5">
-                <h5 class="fw-bold text-primary"><i class="fa-solid fa-graduation-cap me-2"></i> Kelola Akademisi</h5>
-                <p class="text-white-50 small mb-0">Kelola profil dosen lengkap dari 6 Program Studi aktif beserta keahlian, Google Scholar, SINTA, Scopus, dan pas foto resmi dengan batas upload 1MB terkompresi otomatis.</p>
+
+        <!-- Panduan 2 -->
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border border-secondary border-opacity-10 rounded-3 h-100 bg-white bg-opacity-5" style="border-left: 4px solid var(--accent-secondary) !important;">
+                <h5 class="fw-bold text-white d-flex align-items-center gap-2">
+                    <span class="badge bg-primary bg-opacity-25 text-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 28px; height: 28px; font-size: 0.85rem;">2</span>
+                    Menerbitkan Berita Terbaru
+                </h5>
+                <p class="text-white-50 small mt-2 mb-0">
+                    Masuk ke menu <strong class="text-info">Beranda &gt; Berita Utama</strong>. Menambah berita baru dengan status <span class="badge bg-success bg-opacity-10 text-success small">Diterbitkan</span> secara otomatis akan menampilkan poster dan ringkasan berita di bagian <strong class="text-warning">Berita Terbaru</strong> di halaman beranda depan. Berita dapat diklik untuk membuka modal berisi teks lengkapnya.
+                </p>
             </div>
         </div>
-        <div class="col-md-4 mb-3">
-            <div class="p-3 border border-secondary border-opacity-10 rounded-3 h-100 bg-white bg-opacity-5">
-                <h5 class="fw-bold text-success"><i class="fa-solid fa-flask me-2"></i> Kelola Penelitian &amp; Abdimas</h5>
-                <p class="text-white-50 small mb-0">Kelola skema pengajuan hibah, data laporan penelitian, laporan pengabdian masyarakat (Abdimas) beserta dokumen PDF lampirannya.</p>
+
+        <!-- Panduan 3 -->
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border border-secondary border-opacity-10 rounded-3 h-100 bg-white bg-opacity-5" style="border-left: 4px solid var(--accent-secondary) !important;">
+                <h5 class="fw-bold text-white d-flex align-items-center gap-2">
+                    <span class="badge bg-primary bg-opacity-25 text-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 28px; height: 28px; font-size: 0.85rem;">3</span>
+                    Mengubah Submenu "Profil"
+                </h5>
+                <p class="text-white-50 small mt-2 mb-0">
+                    Masuk ke menu <strong class="text-info">Profil Lembaga</strong>. Mengedit tulisan atau sejarah di halaman ini akan langsung mengubah isi konten yang muncul ketika pengunjung mengklik submenu navbar depan: <strong class="text-warning">PROFIL &gt; Tentang Kami</strong>, <strong class="text-warning">Visi &amp; Misi</strong>, <strong class="text-warning">Struktur Organisasi</strong>, atau <strong class="text-warning">Prestasi</strong> secara instan.
+                </p>
+            </div>
+        </div>
+
+        <!-- Panduan 4 -->
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border border-secondary border-opacity-10 rounded-3 h-100 bg-white bg-opacity-5" style="border-left: 4px solid var(--accent-secondary) !important;">
+                <h5 class="fw-bold text-white d-flex align-items-center gap-2">
+                    <span class="badge bg-primary bg-opacity-25 text-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 28px; height: 28px; font-size: 0.85rem;">4</span>
+                    Memetakan Profil Dosen ke "Akademisi"
+                </h5>
+                <p class="text-white-50 small mt-2 mb-0">
+                    Masuk ke menu <strong class="text-info">Akademisi (Dosen)</strong>. Setiap Anda mendaftarkan dosen baru, pastikan untuk memilih <strong class="text-warning">Program Studi</strong> yang sesuai (misal: <em class="text-info">Akuntansi</em>). Dosen tersebut akan otomatis terdaftar dan terpampang secara rapi pada halaman submenu navbar depan: <strong class="text-warning">AKADEMISI &gt; Akuntansi</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Panduan 5 -->
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border border-secondary border-opacity-10 rounded-3 h-100 bg-white bg-opacity-5" style="border-left: 4px solid var(--accent-secondary) !important;">
+                <h5 class="fw-bold text-white d-flex align-items-center gap-2">
+                    <span class="badge bg-primary bg-opacity-25 text-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 28px; height: 28px; font-size: 0.85rem;">5</span>
+                    Menampilkan Video Kegiatan YouTube
+                </h5>
+                <p class="text-white-50 small mt-2 mb-0">
+                    Masuk ke menu <strong class="text-info">Beranda &gt; Video YouTube</strong>. Tambahkan tautan URL YouTube standar apa pun (misal kegiatan KKN). Sistem kami secara otomatis mem-parsing URL tersebut menjadi format embed sehingga video player responsif dapat diputar langsung di beranda bagian <strong class="text-warning">Video</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Panduan 6 -->
+        <div class="col-md-6 mb-4">
+            <div class="p-4 border border-secondary border-opacity-10 rounded-3 h-100 bg-white bg-opacity-5" style="border-left: 4px solid var(--accent-secondary) !important;">
+                <h5 class="fw-bold text-white d-flex align-items-center gap-2">
+                    <span class="badge bg-primary bg-opacity-25 text-primary rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 28px; height: 28px; font-size: 0.85rem;">6</span>
+                    Mengubah Kontak &amp; Lokasi Kampus
+                </h5>
+                <p class="text-white-50 small mt-2 mb-0">
+                    Masuk ke menu <strong class="text-info">Kontak &amp; Layanan</strong>. Mengubah informasi email, alamat kantor, jam operasional, nomor WA, atau link Google Maps di sini secara otomatis akan memperbarui seluruh <strong class="text-warning">Footer</strong> (bagian bawah web) secara global dan halaman menu kontak depan secara real-time.
+                </p>
             </div>
         </div>
     </div>

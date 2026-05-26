@@ -97,6 +97,12 @@
           <a href="{{ route('kontak.lokasi') }}" class="submenu-item">Lokasi</a>
         </div>
       </div>
+
+      <div class="nav-item no-dropdown navbar-login-btn-container" style="margin-left: 15px; display: flex; align-items: center;">
+        <a href="{{ route('admin.login') }}" class="nav-link-login-btn" style="padding: 7px 18px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; background: linear-gradient(135deg, #0f2b5c 0%, #0072ff 100%); color: #fff !important; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 15px rgba(0, 114, 255, 0.25); border: 1px solid rgba(255, 255, 255, 0.1);">
+          <i class="fa-solid fa-user-lock"></i> LOGIN ADMIN
+        </a>
+      </div>
     </nav>
 
     <button class="menu-toggle" id="menuToggle" aria-label="Buka menu navigasi">
@@ -104,3 +110,15 @@
     </button>
   </div>
 </header>
+
+<style>
+  .nav-link-login-btn {
+    transition: all 0.3s ease !important;
+  }
+  .nav-link-login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 114, 255, 0.45) !important;
+    background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%) !important;
+  }
+</style>
+

@@ -28,8 +28,15 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('Administrasi LPPM IBI KKG')
+            ->brandLogo(asset('assets/logo_ibinew_biru.png'))
+            ->darkModeBrandLogo(asset('assets/logo_ibinew_putih.png'))
+            ->brandLogoHeight('2.5rem')
+            ->favicon(asset('assets/images/1.jpeg'))
+            ->font('Outfit')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::rgb('rgb(0, 114, 255)'),
+                'gray' => Color::Slate,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
