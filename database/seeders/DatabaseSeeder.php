@@ -15,6 +15,7 @@ use App\Models\Document;
 use App\Models\Lecturer;
 use App\Models\Gallery;
 use App\Models\Contact;
+use App\Models\Video;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -328,5 +329,30 @@ class DatabaseSeeder extends Seeder
             'service_hours' => 'Senin - Jumat: 08:30 - 16:30 WIB',
             'google_maps_embed' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.8627409252327!2d106.8903523!3d-6.1491295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f547c10b777f%3A0xc036987c69992b15!2sKwik%20Kian%20Gie%20School%20of%20Business!5e0!3m2!1sid!2sid!4v1716300000000!5m2!1sid!2sid',
         ]);
+
+        // 14. Seed Videos
+        $videos = [
+            [
+                'title' => 'Profil Lembaga Penelitian dan Pengabdian Masyarakat (LPPM) IBI KKG',
+                'url' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                'description' => 'Video pengenalan profil lengkap lembaga LPPM IBI Kwik Kian Gie.',
+                'status' => 'active',
+            ],
+            [
+                'title' => 'Kegiatan KKN & Pengabdian Masyarakat Terintegrasi',
+                'url' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                'description' => 'Dokumentasi kegiatan lapangan dan pengabdian masyarakat oleh mahasiswa dan dosen.',
+                'status' => 'active',
+            ],
+            [
+                'title' => 'Seminar Nasional Hilirisasi Hasil Riset Multi-Disiplin',
+                'url' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                'description' => 'Klip rangkuman pelaksanaan seminar nasional LPPM IBI Kwik Kian Gie.',
+                'status' => 'active',
+            ],
+        ];
+        foreach ($videos as $v) {
+            Video::create($v);
+        }
     }
 }

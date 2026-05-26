@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h5 class="fw-bold mb-0">Daftar Berita Slider</h5>
+    <h5 class="fw-bold mb-0">Daftar Berita Slider &amp; Pengumuman</h5>
     <a href="{{ route('admin.berita.create') }}" class="btn btn-primary btn-sm px-3 py-2 rounded-3">
         <i class="fa-solid fa-plus me-1"></i> Tambah Berita
     </a>
@@ -18,8 +18,9 @@
                 <tr>
                     <th style="width: 80px;">Poster</th>
                     <th>Judul Berita</th>
-                    <th>Tanggal / Batas</th>
-                    <th>Jenis Aksi Klik</th>
+                    <th>Kategori</th>
+                    <th>Tanggal Terbit</th>
+                    <th>Status</th>
                     <th class="text-end" style="width: 150px;">Aksi</th>
                 </tr>
             </thead>
@@ -27,23 +28,27 @@
                 @forelse($beritas as $berita)
                     <tr>
                         <td>
-                            @if($berita->image)
-                                <img src="{{ asset($berita->image) }}" alt="Poster" class="rounded border border-secondary border-opacity-10" style="width: 60px; height: 45px; object-fit: cover;">
+                            @if($berita->thumbnail)
+                                <img src="{{ asset($berita->thumbnail) }}" alt="Poster" class="rounded border border-secondary border-opacity-10" style="width: 60px; height: 45px; object-fit: cover;">
                             @else
                                 <div class="bg-secondary bg-opacity-20 rounded border border-secondary border-opacity-10 d-flex align-items-center justify-content-center" style="width: 60px; height: 45px;">
                                     <i class="fa-solid fa-image text-white-50"></i>
                                 </div>
                             @endif
                         </td>
-                        <td class="fw-semibold text-white">{{ $berita->title }}</td>
+                        <td class="fw-semibold text-white">
+                            {{ $berita->title }}
+                            <div class="text-white-50 small font-weight-normal mt-1" style="font-size: 0.78rem;">Slug: {{ $berita->slug }}</div>
+                        </td>
+                        <td>
+                            <span class="badge bg-secondary bg-opacity-20 text-white-50 px-2.5 py-1.5 border border-secondary border-opacity-10">{{ $berita->category ?? 'Umum' }}</span>
+                        </td>
                         <td class="text-white-50 small">{{ $berita->date }}</td>
                         <td>
-                            @if($berita->content)
-                                <span class="badge bg-success bg-opacity-20 text-success border border-success border-opacity-10">Buka Modal Pop-up</span>
-                            @elseif($berita->link)
-                                <span class="badge bg-info bg-opacity-20 text-info border border-info border-opacity-10">Redirect ke Halaman</span>
+                            @if($berita->status === 'published')
+                                <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-20 px-2 py-1">Diterbitkan</span>
                             @else
-                                <span class="badge bg-secondary bg-opacity-20 text-white-50 border border-secondary border-opacity-10">Tanpa Aksi</span>
+                                <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-20 px-2 py-1">Draf</span>
                             @endif
                         </td>
                         <td class="text-end">
@@ -63,7 +68,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="5" class="text-center py-5 text-white-50">Belum ada data berita.</td>
+                        <td colspan="6" class="text-center py-5 text-white-50">Belum ada data berita.</td>
                     </tr>
                 @endforelse
             </tbody>
@@ -71,7 +76,7 @@
     </div>
 </div>
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center mt-4">
     {{ $beritas->links() }}
 </div>
 @endsection

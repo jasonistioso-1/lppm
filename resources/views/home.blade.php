@@ -216,56 +216,27 @@
           <span class="news-showcase-line"></span>
         </div>
 
-        <div class="video-grid">
-          <article class="news-feature-card reveal">
-            <a href="https://youtu.be/uD1E8MuZK5c?si=_ioYpiPkEzS7rbd7" target="_blank" rel="noopener noreferrer"
-              class="news-feature-link" aria-label="Buka video profil LPPM">
-              <div class="news-feature-image video-thumb">
-                <img src="{{ asset('assets/images/yt.png') }}" alt="Video profil LPPM" />
-                <div class="video-play-overlay"></div>
+        <div class="video-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; display: grid;">
+          @forelse($videos as $video)
+            <article class="news-feature-card reveal" style="background: rgba(15, 28, 63, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column;">
+              <div class="video-iframe-wrapper" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000;">
+                <iframe src="{{ $video->url }}" title="{{ $video->title }}" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
               </div>
-              <div class="news-feature-body">
-                <h3>Profil LPPM IBI KKG</h3>
-                <p>
-                  Video profil lembaga, budaya akademik, dan arah pengembangan
-                  LPPM.
-                </p>
+              <div class="news-feature-body" style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <h3 style="color: #fff; font-size: 1.15rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4;">{{ $video->title }}</h3>
+                  @if($video->description)
+                    <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.88rem; line-height: 1.5; margin-bottom: 0;">{{ Str::limit($video->description, 120) }}</p>
+                  @endif
+                </div>
               </div>
-            </a>
-          </article>
-
-          <article class="news-feature-card reveal">
-            <a href="javascript:void(0)" class="news-feature-link"
-              aria-label="Buka video kegiatan LPPM (Belum Tersedia)" style="cursor: default;">
-              <div class="news-feature-image video-thumb">
-                <img src="{{ asset('assets/images/pkm2025.jpeg') }}" alt="Video kegiatan LPPM" />
-                <div class="video-play-overlay"></div>
-              </div>
-              <div class="news-feature-body">
-                <h3>Kegiatan LPPM (Slot Kosong)</h3>
-                <p>
-                  Dokumentasi kegiatan penelitian, publikasi, dan pengabdian
-                  kepada masyarakat.
-                </p>
-              </div>
-            </a>
-          </article>
-
-          <article class="news-feature-card reveal">
-            <a href="javascript:void(0)" class="news-feature-link" aria-label="Buka video seminar LPPM (Belum Tersedia)"
-              style="cursor: default;">
-              <div class="news-feature-image video-thumb">
-                <img src="{{ asset('assets/images/1.jpeg') }}" alt="Seminar Nasional LPPM" />
-                <div class="video-play-overlay"></div>
-              </div>
-              <div class="news-feature-body">
-                <h3>Seminar Nasional LPPM (Slot Kosong)</h3>
-                <p>
-                  Dokumentasi kolaborasi riset, hilirisasi produk inovasi, serta diseminasi keilmuan akademisi.
-                </p>
-              </div>
-            </a>
-          </article>
+            </article>
+          @empty
+            <div style="text-align: center; width: 100%; grid-column: 1 / -1; padding: 40px; color: rgba(255,255,255,0.4);">
+              <i class="fa-solid fa-video-slash" style="font-size: 2.5rem; margin-bottom: 12px; display: block; color: rgba(255,255,255,0.2);"></i>
+              Belum ada video kegiatan LPPM yang diterbitkan.
+            </div>
+          @endforelse
         </div>
       </div>
     </section>

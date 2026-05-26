@@ -62,9 +62,33 @@ Route::prefix('kontak')->name('kontak.')->group(function () {
 // Laravel Breeze Auth Routes (for frontend users if needed)
 require __DIR__.'/auth.php';
 
-// Dashboard redirect to Filament Admin Panel
+// Dashboard redirect to Custom Admin Panel
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
-        return redirect('/admin');
+        return redirect()->route('admin.dashboard');
     })->name('dashboard');
+});
+
+// Custom Admin Panel Routes
+Route::prefix('panel-admin')->name('admin.')->group(function () {
+    Route::get('/login', [App\Http\Controllers\Admin\AuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [App\Http\Controllers\Admin\AuthController::class, 'login'])->name('login.submit');
+    Route::post('/logout', [App\Http\Controllers\Admin\AuthController::class, 'logout'])->name('logout');
+
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+        
+        Route::resource('dosen', App\Http\Controllers\Admin\DosenCrudController::class);
+        Route::resource('berita', App\Http\Controllers\Admin\BeritaCrudController::class);
+        Route::resource('video', App\Http\Controllers\Admin\VideoCrudController::class);
+        Route::resource('slider', App\Http\Controllers\Admin\SliderCrudController::class);
+        Route::resource('galeri', App\Http\Controllers\Admin\GalleryCrudController::class);
+        Route::resource('agenda', App\Http\Controllers\Admin\AgendaCrudController::class);
+        Route::resource('profil', App\Http\Controllers\Admin\ProfilePageCrudController::class);
+        Route::resource('penelitian', App\Http\Controllers\Admin\ResearchCrudController::class);
+        Route::resource('abdimas', App\Http\Controllers\Admin\CommunityServiceCrudController::class);
+        Route::resource('publikasi', App\Http\Controllers\Admin\PublicationCrudController::class);
+        Route::resource('dokumen', App\Http\Controllers\Admin\DocumentCrudController::class);
+        Route::resource('kontak', App\Http\Controllers\Admin\ContactCrudController::class);
+    });
 });

@@ -8,7 +8,7 @@
     <a href="{{ route('admin.dosen.index') }}" class="text-white-50 text-decoration-none small">
         <i class="fa-solid fa-arrow-left me-1"></i> Kembali ke Daftar
     </a>
-    <h5 class="fw-bold mt-2">Ubah Data Akademisi</h5>
+    <h5 class="fw-bold mt-2">Ubah Data Akademisi / Dosen</h5>
 </div>
 
 <div class="glass-card">
@@ -22,43 +22,81 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.dosen.update', $dosen->id) }}" method="POST">
+    <form action="{{ route('admin.dosen.update', $dosen->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label for="nama" class="form-label">Nama Lengkap beserta Gelar <span class="text-danger">*</span></label>
-                <input type="text" name="nama" id="nama" class="form-control" placeholder="Dr. John Doe, M.M." value="{{ old('nama', $dosen->nama) }}" required>
+                <input type="text" name="nama" id="nama" class="form-control" placeholder="Dr. Said Kelana Asnawi, S.E., M.M." value="{{ old('nama', $dosen->name) }}" required>
             </div>
 
             <div class="col-md-6 mb-3">
-                <label for="prodi" class="form-label">Program Studi <span class="text-danger">*</span></label>
-                <select name="prodi" id="prodi" class="form-select" required>
-                    <option value="">-- Pilih Program Studi --</option>
-                    @foreach($prodis as $prodi)
-                        <option value="{{ $prodi }}" {{ old('prodi', $dosen->prodi) === $prodi ? 'selected' : '' }}>{{ $prodi }}</option>
-                    @endforeach
-                </select>
+                <label for="nidn" class="form-label">NIDN / Kode Dosen <span class="text-danger">*</span></label>
+                <input type="text" name="nidn" id="nidn" class="form-control" placeholder="0312046901" value="{{ old('nidn', $dosen->nidn) }}" required>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="gsName" class="form-label">Nama Google Scholar (Opsional)</label>
-                <input type="text" name="gsName" id="gsName" class="form-control" placeholder="JOHN DOE" value="{{ old('gsName', $dosen->gsName) }}">
+                <label for="prodi" class="form-label">Program Studi <span class="text-danger">*</span></label>
+                <select name="prodi" id="prodi" class="form-select" required>
+                    <option value="">-- Pilih Program Studi --</option>
+                    @foreach($prodis as $prodi)
+                        <option value="{{ $prodi }}" {{ old('prodi', $dosen->department) === $prodi ? 'selected' : '' }}>{{ $prodi }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="col-md-6 mb-3">
-                <label for="gsUser" class="form-label">Google Scholar User ID (Opsional)</label>
-                <input type="text" name="gsUser" id="gsUser" class="form-control" placeholder="P_Rdw4AAAAAJ" value="{{ old('gsUser', $dosen->gsUser) }}">
-                <span class="text-white-50" style="font-size: 0.75rem;">Kode ID di URL profil Google Scholar (misal: user=P_Rdw4AAAAAJ).</span>
+                <label for="email" class="form-label">Alamat Email (Opsional)</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="dosen@kwikkiangie.ac.id" value="{{ old('email', $dosen->email) }}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="keahlian" class="form-label">Bidang Keahlian Riset (Opsional)</label>
+                <input type="text" name="keahlian" id="keahlian" class="form-control" placeholder="Manajemen Keuangan &amp; Pasar Modal" value="{{ old('keahlian', $dosen->expertise) }}">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="status" class="form-label">Status <span class="text-danger">*</span></label>
+                <select name="status" id="status" class="form-select" required>
+                    <option value="active" {{ old('status', $dosen->status) === 'active' ? 'selected' : '' }}>Aktif</option>
+                    <option value="inactive" {{ old('status', $dosen->status) === 'inactive' ? 'selected' : '' }}>Nonaktif</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="google_scholar" class="form-label">Google Scholar ID (Opsional)</label>
+                <input type="text" name="google_scholar" id="google_scholar" class="form-control" placeholder="P_Rdw4AAAAAJ" value="{{ old('google_scholar', $dosen->google_scholar) }}">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="sinta" class="form-label">SINTA ID (Opsional)</label>
+                <input type="text" name="sinta" id="sinta" class="form-control" placeholder="6001234" value="{{ old('sinta', $dosen->sinta) }}">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="scopus" class="form-label">Scopus ID (Opsional)</label>
+                <input type="text" name="scopus" id="scopus" class="form-control" placeholder="57218392182" value="{{ old('scopus', $dosen->scopus) }}">
             </div>
         </div>
 
         <div class="mb-4">
-            <label for="keahlian" class="form-label">Bidang Keahlian Riset (Opsional)</label>
-            <input type="text" name="keahlian" id="keahlian" class="form-control" placeholder="Sistem Informasi & Kecerdasan Buatan" value="{{ old('keahlian', $dosen->keahlian) }}">
+            <label for="photo" class="form-label">Pas Foto Dosen (Opsional)</label>
+            @if($dosen->photo)
+                <div class="mb-3">
+                    <img src="{{ asset($dosen->photo) }}" alt="{{ $dosen->name }}" class="rounded img-thumbnail" style="max-height: 150px;">
+                    <p class="text-white-50 small mt-1">Foto saat ini</p>
+                </div>
+            @endif
+            <input type="file" name="photo" id="photo" class="form-control" accept="image/*">
+            <span class="text-white-50 d-block mt-1" style="font-size: 0.75rem;"><i class="fa-solid fa-circle-info me-1"></i> Pilih file baru jika ingin mengubah pas foto. Maksimal 1 MB (Format: jpeg, png, jpg, webp).</span>
         </div>
 
         <button type="submit" class="btn btn-primary px-4 py-2.5">Simpan Perubahan</button>

@@ -2,21 +2,43 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
+
 class Berita extends News
 {
-    // Accessors to maintain backward compatibility with old Berita model
-    public function getDateAttribute()
+    protected $fillable = [
+        'title',
+        'slug',
+        'category',
+        'thumbnail',
+        'content',
+        'status',
+        'published_at',
+        // compatibility fields
+        'date',
+        'image',
+        'link',
+    ];
+
+    public function setDateAttribute($value)
     {
-        return $this->published_at ? $this->published_at->format('Y-m-d') : $this->created_at->format('Y-m-d');
+        $this->attributes['published_at'] = $value ? date('Y-m-d H:i:s', strtotime($value)) : now();
     }
 
-    public function getImageAttribute()
+    public function setImageAttribute($value)
     {
-        return $this->thumbnail;
+        $this->attributes['thumbnail'] = $value;
     }
 
-    public function getLinkAttribute()
+    // Automatically set slug on title assignment
+    protected static function boot()
     {
-        return route('home'); // Dynamic fallback or default
+        parent::boot();
+
+        static::saving(function ($berita) {
+            if (empty($berita->slug)) {
+                $berita->slug = Str::slug($berita->title);
+            }
+        });
     }
 }
