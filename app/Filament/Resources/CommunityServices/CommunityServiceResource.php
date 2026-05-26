@@ -18,6 +18,12 @@ class CommunityServiceResource extends Resource
 {
     protected static ?string $model = CommunityService::class;
 
+    protected static ?string $navigationLabel = 'Pengabdian Masyarakat (Abdimas)';
+
+    protected static ?string $modelLabel = 'Pengabdian Masyarakat';
+
+    protected static ?string $pluralModelLabel = 'Pengabdian Masyarakat (Abdimas)';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'title';

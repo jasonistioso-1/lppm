@@ -31,7 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('Administrasi LPPM IBI KKG')
             ->brandLogo(asset('assets/logo_ibinew_biru.png'))
             ->darkModeBrandLogo(asset('assets/logo_ibinew_putih.png'))
-            ->brandLogoHeight('2.5rem')
+            ->brandLogoHeight('3.8rem')
             ->favicon(asset('assets/images/1.jpeg'))
             ->font('Outfit')
             ->colors([
@@ -46,7 +46,6 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
                 AccountWidget::class,
-                FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

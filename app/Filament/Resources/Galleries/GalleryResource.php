@@ -18,6 +18,12 @@ class GalleryResource extends Resource
 {
     protected static ?string $model = Gallery::class;
 
+    protected static ?string $navigationLabel = 'Galeri Foto';
+
+    protected static ?string $modelLabel = 'Galeri';
+
+    protected static ?string $pluralModelLabel = 'Galeri Foto';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'title';

@@ -18,6 +18,12 @@ class ResearchResource extends Resource
 {
     protected static ?string $model = Research::class;
 
+    protected static ?string $navigationLabel = 'Data Penelitian';
+
+    protected static ?string $modelLabel = 'Penelitian';
+
+    protected static ?string $pluralModelLabel = 'Data Penelitian';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'title';

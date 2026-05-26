@@ -18,6 +18,12 @@ class ContactResource extends Resource
 {
     protected static ?string $model = Contact::class;
 
+    protected static ?string $navigationLabel = 'Informasi Kontak';
+
+    protected static ?string $modelLabel = 'Kontak';
+
+    protected static ?string $pluralModelLabel = 'Informasi Kontak';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     public static function form(Schema $schema): Schema

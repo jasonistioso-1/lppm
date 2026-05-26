@@ -104,6 +104,4 @@ Route::get('/init-production-db', function () {
     }
 });
 
-// Redirect old Filament admin panel to custom Panel Admin login
-Route::redirect('/admin', '/panel-admin/login');
-Route::redirect('/admin/login', '/panel-admin/login');
+

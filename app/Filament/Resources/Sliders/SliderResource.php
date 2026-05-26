@@ -18,6 +18,12 @@ class SliderResource extends Resource
 {
     protected static ?string $model = Slider::class;
 
+    protected static ?string $navigationLabel = 'Slider Banner';
+
+    protected static ?string $modelLabel = 'Slider Banner';
+
+    protected static ?string $pluralModelLabel = 'Slider Banner';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'title';

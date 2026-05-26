@@ -18,6 +18,12 @@ class PublicationResource extends Resource
 {
     protected static ?string $model = Publication::class;
 
+    protected static ?string $navigationLabel = 'Publikasi / Jurnal';
+
+    protected static ?string $modelLabel = 'Publikasi';
+
+    protected static ?string $pluralModelLabel = 'Publikasi / Jurnal';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'title';

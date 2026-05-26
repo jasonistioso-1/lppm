@@ -18,6 +18,12 @@ class ProfilePageResource extends Resource
 {
     protected static ?string $model = ProfilePage::class;
 
+    protected static ?string $navigationLabel = 'Halaman Profil';
+
+    protected static ?string $modelLabel = 'Halaman Profil';
+
+    protected static ?string $pluralModelLabel = 'Halaman Profil';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'title';

@@ -18,6 +18,12 @@ class LecturerResource extends Resource
 {
     protected static ?string $model = Lecturer::class;
 
+    protected static ?string $navigationLabel = 'Akademisi / Dosen';
+
+    protected static ?string $modelLabel = 'Dosen';
+
+    protected static ?string $pluralModelLabel = 'Akademisi / Dosen';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'name';

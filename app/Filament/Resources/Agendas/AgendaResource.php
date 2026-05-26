@@ -18,6 +18,12 @@ class AgendaResource extends Resource
 {
     protected static ?string $model = Agenda::class;
 
+    protected static ?string $navigationLabel = 'Agenda Kegiatan';
+
+    protected static ?string $modelLabel = 'Agenda';
+
+    protected static ?string $pluralModelLabel = 'Agenda Kegiatan';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static ?string $recordTitleAttribute = 'title';
