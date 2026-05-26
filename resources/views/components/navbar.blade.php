@@ -112,13 +112,65 @@
 </header>
 
 <style>
+  /* Hanya override layout navbar pada Desktop (di atas 1080px) untuk kerapihan maksimal */
+  @media (min-width: 1081px) {
+    /* 1. Atur container agar tidak full dan posisinya proporsional */
+    .header-container {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 15px !important;
+      padding: 10px 0 !important;
+      min-height: 90px !important;
+    }
+
+    /* 2. Hindari tumpang tindih logo dengan memindahkan nav menu ke relative */
+    .header-nav {
+      position: relative !important;
+      left: auto !important;
+      transform: none !important;
+      margin: 0 auto !important; /* Membuat menu berbaris rapi di tengah antara logo & tombol login */
+      display: flex !important;
+      align-items: center !important;
+      gap: 2px !important; /* Jarak antar menu lebih rapat dan elegan */
+      flex-wrap: nowrap !important;
+      z-index: 1 !important;
+    }
+
+    /* 3. Perkecil ukuran font dan padding link agar tidak kepenuhan/full */
+    .nav-link {
+      font-size: 0.82rem !important;
+      padding: 0 10px !important; /* Mengurangi padding dari 16px menjadi 10px */
+      min-height: 40px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.2px !important;
+    }
+
+    .nav-link.active::after,
+    .nav-item:hover > .nav-link::after {
+      left: 10px !important;
+      right: 10px !important;
+      bottom: 2px !important;
+      height: 3px !important;
+    }
+
+    .navbar-login-btn-container {
+      margin-left: 12px !important;
+    }
+  }
+
+  /* Kustomisasi gaya tombol Login Admin */
   .nav-link-login-btn {
     transition: all 0.3s ease !important;
+    white-space: nowrap !important;
   }
+  
   .nav-link-login-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) !important;
     box-shadow: 0 6px 20px rgba(0, 114, 255, 0.45) !important;
     background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%) !important;
+    color: #fff !important;
   }
 </style>
+
 
